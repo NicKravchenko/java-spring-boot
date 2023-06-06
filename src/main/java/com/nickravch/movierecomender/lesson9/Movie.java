@@ -8,10 +8,10 @@ public class Movie {
     //for keeping track of instances created
     private static int instances = 0;
 
-    private int id;
-    private String name;
-    private String genre;
-    private String producer;
+    // private int id;
+    // private String name;
+    // private String genre;
+    // private String producer;
 
     public Movie() {
         instances++;

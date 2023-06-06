@@ -1,6 +1,5 @@
 package com.nickravch.movierecomender.lesson11;
 
-import java.util.Arrays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
