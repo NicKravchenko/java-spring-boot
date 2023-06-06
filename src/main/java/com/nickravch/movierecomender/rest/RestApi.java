@@ -1,13 +1,13 @@
-package com.nickravch.movierecomender;
+package com.nickravch.movierecomender.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MovierecomenderApplication {
+public class RestApi {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MovierecomenderApplication.class, args);
+		SpringApplication.run(RestApi.class, args);
 	}
 
 }
