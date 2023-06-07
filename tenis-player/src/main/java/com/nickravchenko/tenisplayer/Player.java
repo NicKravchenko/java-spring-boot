@@ -1,20 +1,40 @@
 package com.nickravchenko.tenisplayer;
 
-
 import java.sql.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
+
+@Entity
+@NamedQuery(name = "get_all_players", query = "select p from Player p")
 public class Player {
+	@Id
+	@GeneratedValue
 	private int id;
-    private String name;
-    private String nationality;
-    private Date birthDate;
-    private int titles;
+	private String name;
 
-    public Player( ) {
+	@Column(name = "nationality")
+	private String nationality;
 
-    }
+	private Date birthDate;
+	private int titles;
 
-    public Player(int id, String name, String nationality, Date birthDate, int titles) {
+	public Player() {
+
+	}
+
+	public Player(String name, String nationality, Date birthDate, int titles) {
+		super();
+		this.name = name;
+		this.nationality = nationality;
+		this.birthDate = birthDate;
+		this.titles = titles;
+	}
+
+	public Player(int id, String name, String nationality, Date birthDate, int titles) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -68,4 +88,5 @@ public class Player {
 		return "\nPlayer [id= " + id + ", name= " + name + ", nationality= " + nationality + ", birthDate= " + birthDate
 				+ ", titles= " + titles + "]";
 	}
+
 }

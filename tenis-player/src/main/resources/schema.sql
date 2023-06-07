@@ -1,4 +1,4 @@
-CREATE TABLE Player (
+CREATE TABLE Playdder (
     ID INTEGER NOT NULL,
     Name VARCHAR(255) NOT NULL,
     Nationality VARCHAR(255) NOT NULL,

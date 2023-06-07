@@ -64,7 +64,7 @@ public class PlayerDAO {
         System.out.println("Table created");
     }
 
-    private static final class PlayerMapper implements RowMapper {
+    private static final class PlayerMapper implements RowMapper<Player> {
 
         @Override
         public Player mapRow(ResultSet resultSet, int rowNum) throws SQLException {

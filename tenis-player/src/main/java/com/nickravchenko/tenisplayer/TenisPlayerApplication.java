@@ -14,7 +14,7 @@ public class TenisPlayerApplication implements CommandLineRunner {
 	private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
-	PlayerDAO dao;
+	PlayerRepository repo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TenisPlayerApplication.class, args);
@@ -22,20 +22,22 @@ public class TenisPlayerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// logger.info("Inserting Player 4: {}", dao.insertPlayer(
-		// new Player(4, "Thiem", "Austria",
-		// new Date(System.currentTimeMillis()),
-		// 17)));
-
-		// logger.info("Updating Player with Id 4: {}", dao.updatePlayer(
-		// new Player(4, "Thiem", "Austria",
-		// Date.valueOf("1991-09-03"), 17)));
-
-		// logger.info("All users -> {}", dao.getAllPlayers());
-		// logger.info("Deleting Player with Id 2: {}", dao.deletePlayerById(2));
-		// logger.info("All users -> {}", dao.getAllPlayers());
-		// dao.createTournamentTable();
-		logger.info("French Players: {}", dao.getPlayerByNationality("France"));
-
+		// insert players
+		logger.info("\n\n>> Inserting Player: {}\n", repo.insertPlayer(
+				new Player("Djokovic", "Serbia", Date.valueOf("1987-05-22"), 81)));
+		logger.info("\n\n>> Inserting Player: {}\n", repo.insertPlayer(
+				new Player("Monfils", "France", Date.valueOf("1986-09-01"), 10)));
+		logger.info("\n\n>> Inserting Player: {}\n", repo.insertPlayer(
+				new Player("Thiem", "Austria",
+						new Date(System.currentTimeMillis()), 17)));
+		// update player
+		logger.info("\n\n>> Updating Player with Id 3: {}\n", repo.updatePlayer(
+				new Player(3, "Thiem", "Austria", Date.valueOf("1993-09-03"), 17)));
+		// get player
+		logger.info("\n\n>> Player with id 3: {}\n", repo.getPlayerById(3));
+		// delete player
+		repo.deletePlayerById(2);
+		// get all players
+		logger.info("\n\n>> All Players Data: {}", repo.getAllPlayers());
 	}
 }
