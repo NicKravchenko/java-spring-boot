@@ -1,4 +1,4 @@
-package com.nickravchenko.tenisplayer;
+package com.nickravchenko.tenisplayer.Player;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

@@ -1,4 +1,4 @@
-package com.nickravchenko.tenisplayer;
+package com.nickravchenko.tenisplayer.Player;
 
 import java.sql.Date;
 
