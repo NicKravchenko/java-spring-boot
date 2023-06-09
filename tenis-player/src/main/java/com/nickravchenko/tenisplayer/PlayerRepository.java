@@ -1,40 +1,14 @@
 package com.nickravchenko.tenisplayer;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-import org.springframework.stereotype.Repository;
+public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
+    @Modifying
+    @Query("update Player p set p.titles = :titles where p.id = :id")
+    void updateTitles(@Param("id") int id, @Param("titles") int titles);
 
-@Repository
-@Transactional
-public class PlayerRepository {
-    @PersistenceContext
-    EntityManager entityManager;
-
-    public Player insertPlayer(Player player) {
-        return entityManager.merge(player);
-    }
-
-    public Player updatePlayer(Player player) {
-        return entityManager.merge(player);
-    }
-
-    public void deletePlayerById(int id) {
-        Player player = entityManager.find(Player.class, id);
-        entityManager.remove(player);
-    }
-
-    public Player getPlayerById(int id) {
-        return entityManager.find(Player.class, id);
-    }
-
-    public List<Player> getAllPlayers() {
-        TypedQuery<Player> getAll = entityManager.createNamedQuery(
-                "get_all_players", Player.class);
-        return getAll.getResultList();
-    }
 }
